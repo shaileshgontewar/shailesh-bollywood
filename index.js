@@ -1,8 +1,16 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const bollywoodData = require("./mydata.json");
 
 const port = process.env.PORT || 3000;
+
+app.use(
+  cors({
+    // origin: "http://localhost:3000",
+    origin: "*",
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Hello Nagpur");
