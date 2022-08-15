@@ -1,7 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const bollywoodData = require("./mydata.json");
+const bollyRouter = require("./route/Bollywood");
+const hollyRouter = require("./route/Hollywood");
+const techRouter = require("./route/Technology");
+const fitRouter = require("./route/Fitness");
+const foodRouter = require("./route/Food");
+const homeRouter = require("./route/Home");
+// const bollywoodData = require("./mydata.json");
 
 const port = process.env.PORT || 3000;
 
@@ -11,13 +17,19 @@ app.use(
     origin: "*",
   })
 );
+app.use("/api", bollyRouter);
+app.use("/api", hollyRouter);
+app.use("/api", techRouter);
+app.use("/api", fitRouter);
+app.use("/api", foodRouter);
+app.use("/api", homeRouter);
 
 app.get("/", (req, res) => {
   res.send("Hello Nagpur");
 });
-app.get("/bollywood", (req, res) => {
-  res.send(bollywoodData);
-});
+// app.get("/bollywood", (req, res) => {
+//   res.send(bollywoodData);
+// });
 
 app.listen(port, () => {
   console.log(`App is listining to port ${port}`);
