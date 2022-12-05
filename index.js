@@ -25,11 +25,8 @@ app.use("/api", foodRouter);
 app.use("/api", homeRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello Nagpur");
+  res.send("<h1>Bollywood blog data</h1>");
 });
-// app.get("/bollywood", (req, res) => {
-//   res.send(bollywoodData);
-// });
 
 app.listen(port, () => {
   console.log(`App is listining to port ${port}`);
